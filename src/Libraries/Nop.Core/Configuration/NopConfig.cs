@@ -38,6 +38,10 @@
         /// </summary>
         public string RedisConnectionString { get; set; }
         /// <summary>
+        /// Gets or sets a value indicating whether we should use the default database only
+        /// </summary>
+        public bool RedisUseDefaultDatabase { get; set; }
+        /// <summary>
         /// Gets or sets a value indicating whether the data protection system should be configured to persist keys in the Redis database
         /// </summary>
         public bool UseRedisToStoreDataProtectionKeys { get; set; }

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using System.Net;
 using Nop.Core.Caching;
@@ -103,6 +103,11 @@ namespace Nop.Core.Redis
         /// <returns>Redis cache database</returns>
         public IDatabase GetDatabase(RedisDatabaseNumber db = RedisDatabaseNumber.Default)
         {
+            // if we should use the default database only
+            if (_config.RedisUseDefaultDatabase)
+                // change the database number to default
+                db = RedisDatabaseNumber.Default;
+
             return GetConnection().GetDatabase((int)db);
         }
 
