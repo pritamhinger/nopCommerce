@@ -908,6 +908,9 @@ set @resources='
   <LocaleResource Name="Admin.System.SystemInfo.CurrentStaticCacheManager.Hint">
 	<Value>Indicating the current static cache manager name.</Value>
   </LocaleResource>  
+  <LocaleResource Name="Admin.Catalog.Products.ProductAttributes.Attributes.AttributeMappingNotFound">
+    <Value>No product attribute mapping found with the specified id</Value>
+  </LocaleResource>
 </Language>'
 
 CREATE TABLE #LocaleStringResourceTmp

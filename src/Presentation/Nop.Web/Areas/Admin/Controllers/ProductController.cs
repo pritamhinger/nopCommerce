@@ -2590,8 +2590,12 @@ namespace Nop.Web.Areas.Admin.Controllers
                 return AccessDeniedView();
 
             //try to get a product attribute mapping with the specified id
-            var productAttributeMapping = _productAttributeService.GetProductAttributeMappingById(id)
-                ?? throw new ArgumentException("No product attribute mapping found with the specified id");
+            var productAttributeMapping = _productAttributeService.GetProductAttributeMappingById(id);
+            if (productAttributeMapping == null)
+            {
+                _notificationService.ErrorNotification(_localizationService.GetResource("Admin.Catalog.Products.ProductAttributes.Attributes.AttributeMappingNotFound"));
+                return RedirectToAction("List");
+            }
 
             //try to get a product with the specified id
             var product = _productService.GetProductById(productAttributeMapping.ProductId)
